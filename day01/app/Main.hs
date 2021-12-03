@@ -1,6 +1,6 @@
 module Main where
 
-import Day01 (day01Part1, day01Part2)    
+import Day01 (day01Part1, day01Part2)
 
 main :: IO ()
 main = do 

@@ -1,1 +1,1 @@
-packages: */*.cabal
+packages: ./day*/*.cabal ./utils/aocutils.cabal
