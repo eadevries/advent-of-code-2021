@@ -15,3 +15,7 @@ readDataLines :: (String -> Maybe a) -> String -> Either String [a]
 readDataLines f s = case mapM f (lines s) of
     Just xs -> Right xs
     Nothing -> Left "Error parsing data"
+
+headMaybe :: [a] -> Maybe a
+headMaybe []    = Nothing
+headMaybe (x:_) = Just x
