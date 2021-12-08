@@ -85,5 +85,21 @@ winningBoard (draw:draws) boards = case winner of
 winningScore :: Int -> Board -> Int
 winningScore d b = d * (sum . map sum $ rows b)
 
+lastWinningBoard :: [Int] -> [Board] -> Maybe (Int, Board)
+lastWinningBoard []    boards = Nothing
+lastWinningBoard draws boards = lastWinningBoard' draws boards
+    where
+        updateBoards :: Int -> [Board] -> [Board]
+        updateBoards n = map (removeDraw n)
+
+        lastWinningBoard' :: [Int] -> [Board] -> Maybe (Int, Board)
+        lastWinningBoard' ns bs = case filter (not . hasBingo) $ updateBoards (head ns) bs of
+            []  -> Nothing
+            [b] -> winningBoard (tail ns) [b]
+            bs' -> lastWinningBoard' (tail ns) bs'
+
 day04Part2 :: String -> String
-day04Part2 = undefined
+day04Part2 s =  case readDrawListAndBoards s of
+    Left e         -> e
+    Right (dl, bs) -> maybe "No winner found" (show . uncurry winningScore) (lastWinningBoard dl bs)
+    -- Right (dl, bs) -> maybe "No winner found" show (lastWinningBoard dl bs)
