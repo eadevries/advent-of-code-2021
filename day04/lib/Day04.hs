@@ -102,4 +102,3 @@ day04Part2 :: String -> String
 day04Part2 s =  case readDrawListAndBoards s of
     Left e         -> e
     Right (dl, bs) -> maybe "No winner found" (show . uncurry winningScore) (lastWinningBoard dl bs)
-    -- Right (dl, bs) -> maybe "No winner found" show (lastWinningBoard dl bs)
