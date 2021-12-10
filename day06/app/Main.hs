@@ -7,4 +7,4 @@ inputFile :: FilePath
 inputFile = "./day06/data/input.txt"
 
 main :: IO ()
-main = runPart inputFile day06Part1
+main = runDay inputFile day06Part1 day06Part2
