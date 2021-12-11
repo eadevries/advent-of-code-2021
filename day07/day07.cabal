@@ -1,0 +1,27 @@
+cabal-version:      3.6
+name:               day07
+version:            0.1.0.0
+
+author:             Elliot de Vries
+maintainer:         elliot.devries@protonmail.com
+
+executable day07
+    main-is:          Main.hs
+
+    -- Modules included in this executable, other than Main.
+    -- other-modules:
+
+    -- LANGUAGE extensions used by modules in this package.
+    -- other-extensions:
+    build-depends:    base ^>=4.15.0.0
+                    , aocutils
+                    , day07
+    hs-source-dirs:   app
+    default-language: Haskell2010
+
+library
+    build-depends:    base ^>=4.15.0.0
+                    , aocutils
+    default-language: Haskell2010
+    exposed-modules:  Day07
+    hs-source-dirs:   lib

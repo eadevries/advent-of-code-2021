@@ -1,0 +1,6 @@
+cradle:
+  cabal:
+    - path: "./lib/Day07.hs"
+      component: "lib:day07"
+    - path: "./app/Main.hs"
+      component: "exe:day07"
